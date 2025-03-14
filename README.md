@@ -1,0 +1,2 @@
+# lockdiff in typescript
+
