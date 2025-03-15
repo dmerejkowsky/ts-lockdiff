@@ -22,7 +22,18 @@ const parseLock = (contents: string, options: { name: string }): Package[] => {
 }
 
 const parseNpm = (contents: string): Package[] => {
-    return []
+    const parsed = JSON.parse(contents)
+    const entries = Object.entries(parsed.packages)
+    const packages = []
+    for (const [name, data] of entries) {
+        if (!name) {
+            continue
+        }
+        const simplerName = name.replace(/^node_modules\//, '')
+        const packageData = data as { version: string }
+        packages.push({ name: simplerName, version: packageData.version })
+    }
+    return packages
 }
 
 const parseYarn = (contents: string): Package[] => {

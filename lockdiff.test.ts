@@ -29,7 +29,6 @@ typescript@^4.9.5:
 
     const parsed = parseLock(contents, { name: 'yarn.lock' })
 
-
     expectLock(parsed,
       [
         ['leftpad', '0.0.1'],
@@ -64,8 +63,5 @@ typescript@^4.9.5:
     expectLock(parsed, [
       ['@eslint/eslintrc', '2.1.2']
     ])
-
   })
 })
-
-
