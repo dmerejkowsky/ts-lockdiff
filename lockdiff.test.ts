@@ -27,7 +27,7 @@ typescript@^4.9.5:
 
     `.trim()
 
-    const parsed = parseLock(contents, { name: 'yarn.lock' })
+    const parsed = parseLock(contents, { filename: 'yarn.lock' })
 
     expectLock(parsed,
       [
@@ -58,7 +58,7 @@ typescript@^4.9.5:
   }
 }
     `
-    const parsed = parseLock(contents, { name: 'package-lock.json' })
+    const parsed = parseLock(contents, { filename: 'package-lock.json' })
 
     expectLock(parsed, [
       ['@eslint/eslintrc', '2.1.2']
